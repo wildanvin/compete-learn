@@ -9,38 +9,31 @@ const Home: NextPage = () => {
       <div className="flex items-center flex-col flex-grow pt-10">
         <div className="px-5 flex flex-col justify-center items-center">
           <h1 className="text-center mb-8">
-            <span className="block text-2xl mb-2">Módulo 2: Lorem ipsum dolor sit amet</span>
+            <span className="block text-2xl mb-2">Módulo 2: Comunicación y Colaboración </span>
           </h1>
           <p className="text-center text-lg w-1/2">
-            Et ultrices neque ornare aenean euismod elementum nisi quis. Non arcu risus quis varius quam. Enim lobortis
-            scelerisque fermentum dui faucibus in ornare quam. Id neque aliquam vestibulum morbi. Id diam vel quam
-            elementum pulvinar etiam non. Facilisi cras fermentum odio eu feugiat pretium. Bibendum at varius vel
-            pharetra. Donec pretium vulputate sapien nec.
+            ¡Felicidades! Has avanzado al segundo módulo del programa. En este punto ya has aprendido a buscar, evaluar
+            y gestionar eficientemente la información y los datos que manejas a diario en tu práctica educativa.
           </p>
           <p className="text-center text-lg w-1/2">
-            Et ultrices neque ornare aenean euismod elementum nisi quis. Non arcu risus quis varius quam. Enim lobortis
-            scelerisque fermentum dui faucibus in ornare quam. Id neque aliquam vestibulum morbi. Id diam vel quam
-            elementum pulvinar etiam non. Facilisi cras fermentum odio eu feugiat pretium. Bibendum at varius vel
-            pharetra. Donec pretium vulputate sapien nec.
+            Ahora, ¿Cómo comunicas y compartes esta información y datos? ¿De qué manera participas y colaboras con otras
+            personas a través de distintos medios digitales y en diferentes entornos virtuales? Veamos las competencias
+            asociadas a esta área que nos propone DigComp 2.0:
           </p>
           <p className="text-center text-lg w-1/2">
-            Et ultrices neque ornare aenean euismod elementum nisi quis. Non arcu risus quis varius quam. Enim lobortis
-            scelerisque fermentum dui faucibus in ornare quam. Id neque aliquam vestibulum morbi. Id diam vel quam
-            elementum pulvinar etiam non. Facilisi cras fermentum odio eu feugiat pretium. Bibendum at varius vel
-            pharetra. Donec pretium vulputate sapien nec.
+            2.1 Interactuar a través de tecnologías digitales. 2.2 Compartir a través de tecnologías digitales. 2.3
+            Participación ciudadana a través de las tecnologías digitales. 2.4 Colaboración a través de las tecnologías
+            digitales.
           </p>
           <p className="text-center text-lg w-1/2">
-            Et ultrices neque ornare aenean euismod elementum nisi quis. Non arcu risus quis varius quam. Enim lobortis
-            scelerisque fermentum dui faucibus in ornare quam. Id neque aliquam vestibulum morbi. Id diam vel quam
-            elementum pulvinar etiam non. Facilisi cras fermentum odio eu feugiat pretium. Bibendum at varius vel
-            pharetra. Donec pretium vulputate sapien nec.
+            Visualiza el siguiente video donde se explica cada área de competencia y procede cumplir los desafíos de
+            este módulo. ¡Sigue adelante!
           </p>
-
           <button className="m-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md focus:outline-none focus:ring focus:ring-blue-300">
             Reclamar SKT
           </button>
           <button className="m-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md focus:outline-none focus:ring focus:ring-blue-300">
-            Reclamar NFT del Módulo 2
+            Reclamar NFT del Módulo 3
           </button>
         </div>
       </div>

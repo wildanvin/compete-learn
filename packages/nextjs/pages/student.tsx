@@ -16,9 +16,17 @@ const Home: NextPage = () => {
             <ul className="space-y-2">
               <li className="flex items-center space-x-2">
                 <p>
+                  Módulo 0:{" "}
+                  <Link href="/module0" passHref className="link">
+                    INFORMACION GENERAL
+                  </Link>
+                </p>
+              </li>
+              <li className="flex items-center space-x-2">
+                <p>
                   Módulo 1:{" "}
                   <Link href="/module1" passHref className="link">
-                    Lorem ipsum dolor sit amet
+                    BUSQUEDA Y GESTION DE INFORMACION Y DATOS
                   </Link>
                 </p>
               </li>
@@ -26,15 +34,7 @@ const Home: NextPage = () => {
                 <p>
                   Módulo 2:{" "}
                   <Link href="/module2" passHref className="link">
-                    Consectetur adipiscing elit
-                  </Link>
-                </p>
-              </li>
-              <li className="flex items-center space-x-2">
-                <p>
-                  Módulo 3:{" "}
-                  <Link href="/module3" passHref className="link">
-                    Eu tincidunt tortor aliquam nulla
+                    COMUNICACION Y COLABORACION
                   </Link>
                 </p>
               </li>
