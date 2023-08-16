@@ -35,14 +35,14 @@ export const ApproveERC20: React.FC = () => {
             type="text"
             value={value.text}
             onChange={e => handleTextChange(index, e.target.value)}
-            className="w-full p-2 mb-4 border border-gray-300 rounded mr-2"
+            className="w-full p-2 mb-4 border border-gray-300 rounded mr-2 text-black"
             placeholder={`ETH Address ${index + 1}`}
           />
           <input
             type="number"
             value={value.number}
             onChange={e => handleNumberChange(index, parseInt(e.target.value))}
-            className="w-1/4 p-2 mb-4 border border-gray-300 rounded"
+            className="w-1/4 p-2 mb-4 border border-gray-300 rounded text-black"
             placeholder={`# de tokens ${index + 1}`}
           />
         </div>

@@ -23,7 +23,7 @@ export const ApproveSBT: React.FC = () => {
           type="text"
           value={value}
           onChange={e => handleInputChange(index, e.target.value)}
-          className="w-full mb-6 p-2 border border-gray-300 rounded"
+          className="w-full mb-6 p-2 border border-gray-300 rounded text-black"
           placeholder={`ETH address ${index + 1}`}
         />
       ))}
