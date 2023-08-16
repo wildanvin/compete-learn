@@ -22,7 +22,7 @@ export const ApproveNFT: React.FC = () => {
 
   return (
     <div className="p-4 w-full sm:w-1/2">
-      <h1 className="text-2xl mb-4">Aprovar NFT de cada módulo</h1>
+      <h1 className="text-2xl mb-4">Aprobar NFT de cada módulo</h1>
       <div className="p-4">
         <div className="relative">
           <select

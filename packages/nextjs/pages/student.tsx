@@ -18,7 +18,7 @@ const Home: NextPage = () => {
                 <p className="text-2xl">
                   <b>Módulo 0:</b>{" "}
                   <Link href="/module0" passHref className="link">
-                    INFORMACION GENERAL
+                    INFORMACIÓN GENERAL
                   </Link>
                 </p>
               </li>
@@ -26,7 +26,7 @@ const Home: NextPage = () => {
                 <p className="text-2xl">
                   <b>Módulo 1:</b>{" "}
                   <Link href="/module1" passHref className="link">
-                    BUSQUEDA Y GESTION DE INFORMACION Y DATOS
+                    BÚSQUEDA Y GESTIÓN DE INFORMACIÓN Y DATOS
                   </Link>
                 </p>
               </li>
@@ -34,7 +34,7 @@ const Home: NextPage = () => {
                 <p className="text-2xl">
                   <b>Módulo 2:</b>{" "}
                   <Link href="/module2" passHref className="link">
-                    COMUNICACION Y COLABORACION
+                    COMUNICACIÓN Y COLABORACIÓN
                   </Link>
                 </p>
               </li>
