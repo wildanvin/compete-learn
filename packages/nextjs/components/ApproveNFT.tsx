@@ -57,7 +57,7 @@ export const ApproveNFT: React.FC = () => {
           type="text"
           value={value}
           onChange={e => handleInputChange(index, e.target.value)}
-          className="w-full mb-2 p-2 border border-gray-300 rounded"
+          className="w-full mb-6 p-2 border border-gray-300 rounded"
           placeholder={`ETH address ${index + 1}`}
         />
       ))}
