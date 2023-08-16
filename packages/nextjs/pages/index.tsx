@@ -16,8 +16,12 @@ const Home: NextPage = () => {
           </h1>
           <p className="text-center text-lg w-1/2">
             Te damos la bienvenida a CompeteLearn, nuestro programa educativo para la formación docente en el desarrollo
-            de competencias digitales en cinco áreas fundamentales: búsqueda y gestión de información y datos,
-            comunicación y colaboración, creación de contenidos digitales, seguridad y resolución de problemas.
+            de competencias digitales en cinco áreas fundamentales:{" "}
+            <b>
+              búsqueda y gestión de información y datos, comunicación y colaboración, creación de contenidos digitales,
+              seguridad y resolución de problemas
+            </b>
+            .
           </p>
           <p className="text-center text-lg w-1/2">
             Este programa está especialmente diseñado para profesionales de la Educación o que se dediquen a la

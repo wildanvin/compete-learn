@@ -17,20 +17,17 @@ const Home: NextPage = () => {
             algunos aspectos generales que te ayudarán a vivir una experiencia de aprendizaje más placentera. Te
             invitamos a leer el siguiente Material:
           </p>
-          <li>
-            <ol>Objetivos de aprendizaje</ol>
-            <ol>Criterios de evaluación</ol>
-            <ol>Estructura del curso</ol>
-            <ol>Conceptos clave</ol>
-            <ol>Sistema de recompensas </ol>
-            <ol>Tutoriales para acceder a los premios</ol>
-          </li>
-          <button className="m-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md focus:outline-none focus:ring focus:ring-blue-300">
-            Reclamar SKT
-          </button>
-          <button className="m-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md focus:outline-none focus:ring focus:ring-blue-300">
-            Reclamar NFT del Módulo 1
-          </button>
+
+          <div className="p-4">
+            <ol className="list-decimal pl-6">
+              <li className="mb-2">Objetivos de aprendizaje</li>
+              <li className="mb-2">Criterios de evaluación</li>
+              <li className="mb-2">Estructura del curso</li>
+              <li className="mb-2">Conceptos clave</li>
+              <li className="mb-2">Sistema de recompensas </li>
+              <li className="mb-2">Tutoriales para acceder a los premios</li>
+            </ol>
+          </div>
         </div>
       </div>
     </>
