@@ -2,7 +2,14 @@ import React, { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Bars3Icon, BugAntIcon, MagnifyingGlassIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import {
+  AcademicCapIcon,
+  Bars3Icon,
+  BugAntIcon,
+  MagnifyingGlassIcon,
+  SparklesIcon,
+  UserIcon,
+} from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
 
@@ -41,13 +48,13 @@ export const Header = () => {
       </li>
       <li>
         <NavLink href="/student">
-          <BugAntIcon className="h-4 w-4" />
+          <AcademicCapIcon className="h-4 w-4" />
           Estudiante
         </NavLink>
       </li>
       <li>
         <NavLink href="/teacher">
-          <BugAntIcon className="h-4 w-4" />
+          <UserIcon className="h-4 w-4" />
           Profesor
         </NavLink>
       </li>

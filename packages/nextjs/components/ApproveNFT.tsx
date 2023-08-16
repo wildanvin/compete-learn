@@ -15,7 +15,7 @@ export const ApproveNFT: React.FC = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 w-full sm:w-1/2">
       <h1 className="text-2xl mb-4">Text Input Form</h1>
       {inputValues.map((value, index) => (
         <input
