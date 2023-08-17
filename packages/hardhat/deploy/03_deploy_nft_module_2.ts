@@ -7,11 +7,11 @@ import { DeployFunction } from "hardhat-deploy/types";
  *
  * @param hre HardhatRuntimeEnvironment object.
  */
-const deployNFTModule1: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+const deployNFTModule2: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy("NFTModule1", {
+  await deploy("NFTModule2", {
     from: deployer,
     args: ["0x4b2b0D5eE2857fF41B40e3820cDfAc8A9cA60d9f"],
     log: true,
@@ -19,6 +19,6 @@ const deployNFTModule1: DeployFunction = async function (hre: HardhatRuntimeEnvi
   });
 };
 
-export default deployNFTModule1;
+export default deployNFTModule2;
 
-deployNFTModule1.tags = ["NFTModule1"];
+deployNFTModule2.tags = ["NFTModule2"];

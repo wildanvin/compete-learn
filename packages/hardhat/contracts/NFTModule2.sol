@@ -1,21 +1,18 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.9;
 
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract SBTCertification is ERC721URIStorage {
+contract NFTModule2 is ERC721 {
     using Counters for Counters.Counter;
-
 
     /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
     /*                          VARIABLES                         */
     /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
-    
-    Counters.Counter private _tokenIds;
 
+    Counters.Counter private _tokenIdCounter;
     address public immutable teacher;
-    mapping (address => string) public studentMetadata;
     mapping (address => bool) public studentApproved;
 
     /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
@@ -44,30 +41,26 @@ contract SBTCertification is ERC721URIStorage {
     /*                        FUNCTIONALITY                       */
     /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
-    constructor(address _teacher) ERC721("SBTCert", "CRT") {
+    constructor(address _teacher) ERC721("Mod2Cert", "MOD2") {
         teacher = _teacher;
     }
 
-    function claimCertSBT()
-        public
-        onlyApproved
-        returns (uint256)
-    {
-        uint256 newItemId = _tokenIds.current();
-        _mint(msg.sender, newItemId);
-        _setTokenURI(newItemId, studentMetadata[msg.sender]);
-
-        _tokenIds.increment();
-        return newItemId;
+    function _baseURI() internal pure override returns (string memory) {
+        return "ipfs://bafybeihtjc5dubvxtwxfubw6yubhi2nxbfxudqmfzts2d76rgfn2ei6jg4/";
     }
 
-    function approveStudents(address[] calldata students, string[] calldata metadata) 
+    function claimCertNFT() public onlyApproved {
+        uint256 tokenId = _tokenIdCounter.current();
+        _tokenIdCounter.increment();
+        _safeMint(msg.sender, tokenId);
+    }
+
+    function approveStudents(address[] calldata students) 
         public
         onlyTeacher 
     {
         for (uint i = 0; i < students.length; i++) {
            studentApproved[students[i]] = true; 
-           studentMetadata[students[i]] = metadata[i];
         }
     }
 

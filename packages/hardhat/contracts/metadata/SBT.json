@@ -1,0 +1,7 @@
+{
+  "name": "SBT Curso Completado",
+  "description": "Otorgado por completar el curso en su totalidad",
+  "image": "ipfs://bafybeifsgqxtni4y7r2ubahm5n6vdtqt6uyhr3sag7fu55oc2rcke3z7oe/",
+  "teacher": "wildanvin",
+  "studentName": "El nombre del estudiante debe ingresarlo el profesor en el FE. El FE crea las metadata (para cada nombre distinto), la sube a IPFS y las pone en un array para guardar en el contrato de SBTCertification a través de la funcion approveStudents() "
+}
