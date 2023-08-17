@@ -1,6 +1,6 @@
 # Live Demo
 
-Interact with the app [here](https://compete-learn-nextjs-l3php0ft6-wildanvin.vercel.app/).
+Interact with the app [here](https://compete-learn-nextjs.vercel.app/).
 
 # 🏗 Scaffold-ETH 2
 
