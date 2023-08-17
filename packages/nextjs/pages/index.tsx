@@ -41,9 +41,12 @@ const Home: NextPage = () => {
               desafíos de cada módulo. En total, dedicarás alrededor de 50 horas de formación.
             </p>
             <p>
-              Al culminar los módulos, obtendrás un NFT que validará tu aprendizaje y, al final de este emocionante
-              recorrido, recibirás un certificado respaldado en la blockchain, garantizando la credibilidad del mismo y
-              ofreciéndote una certificación digital de gran valor en el mundo laboral actual
+              Al culminar los módulos, obtendrás insignias canjeables (Tokens) por premios especiales . Además, tu
+              asistencia a las actividades síncronas será recompensada con un NFT y, al final de este emocionante
+              recorrido, si realizas todas las actividades evaluadas de los cinco (5) módulos, recibirás un certificado
+              respaldado con una de las tecnologías blockchain más novedosas y confiables, el Soulbound Token,
+              garantizando la credibilidad del mismo y ofreciéndote una certificación digital de gran valor en el mundo
+              laboral actual.
             </p>
             <p>
               Te invitamos a comenzar el programa de formación revisando la sección Información General, donde
