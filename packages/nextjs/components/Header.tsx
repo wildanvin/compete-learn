@@ -4,10 +4,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import {
   AcademicCapIcon,
-  Bars3Icon,
-  BugAntIcon,
-  MagnifyingGlassIcon,
-  SparklesIcon,
+  Bars3Icon, // BugAntIcon,
+  // MagnifyingGlassIcon,
+  // SparklesIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
@@ -58,7 +57,7 @@ export const Header = () => {
           Profesor
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink href="/debug">
           <BugAntIcon className="h-4 w-4" />
           Debug Contracts
@@ -75,7 +74,7 @@ export const Header = () => {
           <MagnifyingGlassIcon className="h-4 w-4" />
           Block Explorer
         </NavLink>
-      </li>
+      </li> */}
     </>
   );
 
