@@ -14,7 +14,7 @@ const Home: NextPage = () => {
             <span className="block text-4xl font-bold">Compete Learn</span>
             <span className="block text-2xl mb-2">Desarrollo de competencias digitales</span>
           </h1>
-          <div className="text-left text-lg w-full sm:w-1/2">
+          <div className="text-left text-lg w-full sm:w-1/2 leading-8 mt-2">
             <p>
               Te damos la bienvenida a CompeteLearn, nuestro programa educativo para la formación docente en el
               desarrollo de competencias digitales en cinco áreas fundamentales:{" "}
@@ -24,6 +24,7 @@ const Home: NextPage = () => {
               </b>
               .
             </p>
+            <br />
             <p>
               Este programa está especialmente diseñado para profesionales de la Educación o que se dediquen a la
               enseñanza en diferentes niveles y modalidades, a fin de que puedan integrar la tecnología en su práctica
@@ -35,6 +36,7 @@ const Home: NextPage = () => {
               formación, cumpliendo los desafíos de cada módulo y, sobre todo, participando en las actividades síncronas
               (on line) que tendremos cada semana.
             </p>
+            <br />
             <p>
               Hemos distribuido el contenido en cinco (05) módulos, siendo la duración del programa de 10 semanas en las
               que deberás dedicar al menos 5 horas semanales para la revisión del material y el desarrollo de los
@@ -48,6 +50,7 @@ const Home: NextPage = () => {
               garantizando la credibilidad del mismo y ofreciéndote una certificación digital de gran valor en el mundo
               laboral actual.
             </p>
+            <br />
             <p>
               Te invitamos a comenzar el programa de formación revisando la sección Información General, donde
               encontrarás los materiales del programa: objetivos de aprendizaje, criterios de evaluación, estructura del

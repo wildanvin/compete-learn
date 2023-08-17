@@ -1,3 +1,7 @@
+# Live Demo
+
+Interact with the app [here](https://compete-learn-nextjs-l3php0ft6-wildanvin.vercel.app/).
+
 # 🏗 Scaffold-ETH 2
 
 🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
@@ -10,17 +14,26 @@
 
 ## Contents
 
-- [Requirements](#requirements)
-- [Quickstart](#quickstart)
-- [Deploying your Smart Contracts to a Live Network](#deploying-your-smart-contracts-to-a-live-network)
-- [Deploying your NextJS App](#deploying-your-nextjs-app)
-  - [Scaffold App Configuration](#scaffold-app-configuration)
-- [Interacting with your Smart Contracts: SE-2 Custom Hooks](#interacting-with-your-smart-contracts-se-2-custom-hooks)
-- [Disabling Type & Linting Error Checks](#disabling-type-and-linting-error-checks)
-  - [Disabling commit checks](#disabling-commit-checks)
-  - [Deploying to Vercel without any checks](#deploying-to-vercel-without-any-checks)
-  - [Disabling Github Workflow](#disabling-github-workflow)
-- [Contributing to Scaffold-ETH 2](#contributing-to-scaffold-eth-2)
+- [Live Demo](#live-demo)
+- [🏗 Scaffold-ETH 2](#-scaffold-eth-2)
+  - [Contents](#contents)
+  - [Requirements](#requirements)
+  - [Quickstart](#quickstart)
+  - [Deploying your Smart Contracts to a Live Network](#deploying-your-smart-contracts-to-a-live-network)
+  - [Deploying your NextJS App](#deploying-your-nextjs-app)
+    - [Scaffold App Configuration](#scaffold-app-configuration)
+  - [Interacting with your Smart Contracts: SE-2 Custom Hooks](#interacting-with-your-smart-contracts-se-2-custom-hooks)
+    - [useScaffoldContractRead:](#usescaffoldcontractread)
+    - [useScaffoldContractWrite:](#usescaffoldcontractwrite)
+    - [useScaffoldEventSubscriber:](#usescaffoldeventsubscriber)
+    - [useScaffoldEventHistory:](#usescaffoldeventhistory)
+    - [useDeployedContractInfo:](#usedeployedcontractinfo)
+    - [useScaffoldContract:](#usescaffoldcontract)
+  - [Disabling type and linting error checks](#disabling-type-and-linting-error-checks)
+    - [Disabling commit checks](#disabling-commit-checks)
+    - [Deploying to Vercel without any checks](#deploying-to-vercel-without-any-checks)
+    - [Disabling Github Workflow](#disabling-github-workflow)
+  - [Contributing to Scaffold-ETH 2](#contributing-to-scaffold-eth-2)
 
 ## Requirements
 
@@ -131,15 +144,15 @@ You can configure different settings for your dapp at `packages/nextjs/scaffold.
 
 ```ts
 export type ScaffoldConfig = {
-  targetNetwork: chains.Chain;
-  pollingInterval: number;
-  alchemyApiKey: string;
-  walletConnectProjectId: string;
-  onlyLocalBurnerWallet: boolean;
-  walletAutoConnect: boolean;
+  targetNetwork: chains.Chain
+  pollingInterval: number
+  alchemyApiKey: string
+  walletConnectProjectId: string
+  onlyLocalBurnerWallet: boolean
+  walletAutoConnect: boolean
   // your dapp custom config, eg:
   // tokenIcon : string;
-};
+}
 ```
 
 The configuration parameters are described below, make sure to update the values according to your needs:
@@ -178,7 +191,7 @@ You can extend this configuration file, adding new parameters that you need to u
 To use the values from the `ScaffoldConfig` in any other file of your application, you first need to import it in those files:
 
 ```ts
-import scaffoldConfig from "~~/scaffold.config";
+import scaffoldConfig from '~~/scaffold.config'
 ```
 
 ## Interacting with your Smart Contracts: SE-2 Custom Hooks
@@ -202,10 +215,10 @@ Use this hook to read public variables and get data from read-only functions of 
 
 ```ts
 const { data: totalCounter } = useScaffoldContractRead({
-  contractName: "YourContract",
-  functionName: "getGreeting",
-  args: ["ARGUMENTS IF THE FUNCTION ACCEPTS ANY"],
-});
+  contractName: 'YourContract',
+  functionName: 'getGreeting',
+  args: ['ARGUMENTS IF THE FUNCTION ACCEPTS ANY'],
+})
 ```
 
 This example retrieves the data returned by the `getGreeting` function of the `YourContract` smart contract. If the function accepts any arguments, they can be passed in the args array. The retrieved data is stored in the `data` property of the returned object.
@@ -216,24 +229,24 @@ Use this hook to send a transaction to your smart contract to write data or perf
 
 ```ts
 const { writeAsync, isLoading, isMining } = useScaffoldContractWrite({
-  contractName: "YourContract",
-  functionName: "setGreeting",
-  args: ["The value to set"],
+  contractName: 'YourContract',
+  functionName: 'setGreeting',
+  args: ['The value to set'],
   // For payable functions, expressed in ETH
-  value: "0.01",
+  value: '0.01',
   // The number of block confirmations to wait for before considering transaction to be confirmed (default : 1).
   blockConfirmations: 1,
   // The callback function to execute when the transaction is confirmed.
   onBlockConfirmation: (txnReceipt) => {
-    console.log("Transaction blockHash", txnReceipt.blockHash);
+    console.log('Transaction blockHash', txnReceipt.blockHash)
   },
-});
+})
 ```
 
 To send the transaction, you can call the `writeAsync` function returned by the hook. Here's an example usage:
 
 ```ts
-<button className="btn btn-primary" onClick={() => writeAsync()}>
+<button className='btn btn-primary' onClick={() => writeAsync()}>
   Send TX
 </button>
 ```
@@ -246,14 +259,14 @@ Use this hook to subscribe to events emitted by your smart contract, and receive
 
 ```ts
 useScaffoldEventSubscriber({
-  contractName: "YourContract",
-  eventName: "GreetingChange",
+  contractName: 'YourContract',
+  eventName: 'GreetingChange',
   // The listener function is called whenever a GreetingChange event is emitted by the contract.
   // It receives the parameters emitted by the event, for this example: GreetingChange(address greetingSetter, string newGreeting, bool premium, uint256 value);
   listener: (greetingSetter, newGreeting, premium, value) => {
-    console.log(greetingSetter, newGreeting, premium, value);
+    console.log(greetingSetter, newGreeting, premium, value)
   },
-});
+})
 ```
 
 This example subscribes to the `GreetingChange` event emitted by the `YourContract` smart contract, and logs the parameters emitted by the event to the console whenever it is emitted. The `listener` function accepts the parameters emitted by the event, and can be customized according to your needs.
@@ -290,7 +303,7 @@ Use this hook to fetch details about a deployed smart contract, including the AB
 
 ```ts
 // ContractName: name of the deployed contract
-const { data: deployedContractData } = useDeployedContractInfo(contractName);
+const { data: deployedContractData } = useDeployedContractInfo(contractName)
 ```
 
 This example retrieves the details of the deployed contract with the specified name and stores the details in the deployedContractData object.
@@ -302,23 +315,23 @@ For reading data or sending transactions, it's recommended to use `useScaffoldCo
 
 ```ts
 const { data: yourContract } = useScaffoldContract({
-  contractName: "YourContract",
-});
+  contractName: 'YourContract',
+})
 // Returns the greeting and can be called in any function, unlike useScaffoldContractRead
-await yourContract?.read.greeting();
+await yourContract?.read.greeting()
 
 // Used to write to a contract and can be called in any function
-import { useWalletClient } from "wagmi";
+import { useWalletClient } from 'wagmi'
 
-const { data: walletClient } = useWalletClient();
+const { data: walletClient } = useWalletClient()
 const { data: yourContract } = useScaffoldContract({
-  contractName: "YourContract",
+  contractName: 'YourContract',
   walletClient,
-});
+})
 const setGreeting = async () => {
   // Call the method in any function
-  await yourContract?.write.setGreeting(["the greeting here"]);
-};
+  await yourContract?.write.setGreeting(['the greeting here'])
+}
 ```
 
 This example uses the `useScaffoldContract` hook to obtain a contract instance for the `YourContract` smart contract. The data property of the returned object contains the contract instance that can be used to call any of the smart contract methods.

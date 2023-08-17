@@ -7,17 +7,17 @@ import { DeployFunction } from "hardhat-deploy/types";
  *
  * @param hre HardhatRuntimeEnvironment object.
  */
-const deploySBTCertificationCore: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+const deployNFTModule1: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy("SBTCertificationCore", {
+  await deploy("NFTModule1", {
     from: deployer,
     log: true,
     autoMine: true,
   });
 };
 
-export default deploySBTCertificationCore;
+export default deployNFTModule1;
 
-deploySBTCertificationCore.tags = ["SBTCertification"];
+deployNFTModule1.tags = ["NFTModule1"];

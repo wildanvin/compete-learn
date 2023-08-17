@@ -6,16 +6,29 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract SBTCertification is ERC721URIStorage {
     using Counters for Counters.Counter;
+
+
+    /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+    /*                          VARIABLES                         */
+    /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+    
     Counters.Counter private _tokenIds;
 
     address public immutable teacher;
     mapping (address => string) public studentMetadata;
     mapping (address => bool) public studentApproved;
 
+    /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+    /*                           ERRORS                           */
+    /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
     error NotTransferable();
     error NotTeacher();
     error NotApproved();
+
+    /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+    /*                         MODIFIERS                          */
+    /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
 
     modifier onlyTeacher() {
 		if (msg.sender != teacher) revert NotTeacher();
@@ -27,47 +40,43 @@ contract SBTCertification is ERC721URIStorage {
         _;
 	}
 
+    /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
+    /*                        FUNCTIONALITY                       */
+    /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
+
     constructor(address _teacher) ERC721("SBTCert", "CRT") {
         teacher = _teacher;
     }
 
-    function claimCertification(address player, string memory tokenURI)
+    function claimCertification()
         public
         onlyApproved
         returns (uint256)
     {
         uint256 newItemId = _tokenIds.current();
-        _mint(player, newItemId);
-        _setTokenURI(newItemId, tokenURI);
+        _mint(msg.sender, newItemId);
+        _setTokenURI(newItemId, studentMetadata[msg.sender]);
 
         _tokenIds.increment();
         return newItemId;
     }
 
-    //This function takes an array of addresses and string URIS is only settable by the teacher
-    function approveStudents(address[] calldata students, string[] calldata metadata) public onlyTeacher {
-        //set:
-        /*
-        studentMetadata;
-        studentApproved;
-         */
-
-
+    function approveStudents(address[] calldata students, string[] calldata metadata) 
+        public
+        onlyTeacher 
+    {
+        for (uint i = 0; i < students.length; i++) {
+           studentApproved[students[i]] = true; 
+           studentMetadata[students[i]] = metadata[i];
+        }
     }
 
     /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/
     /*                         OVERRIDES                          */
     /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/
-
-    function _transfer(address, address, uint256) internal pure override {
+    function _beforeTokenTransfer(address from, address, uint256, uint256) internal pure override {
+        if (from!= address(0)){
         revert NotTransferable();
+        }
     }
-
-    function _approve(address, uint256) internal pure override {
-        revert NotTransferable();
-    }
-
-    // function _beforeTokenTransfer( address, address, uint256, uint256) internal pure override {
-    //     revert NotTransferable();
-    // }
 }
